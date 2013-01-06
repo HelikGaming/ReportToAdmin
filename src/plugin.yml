@@ -1,0 +1,7 @@
+name: ReportToAdmin
+main: me.shanked.nicatronTg.ReportToAdmin.ReportToAdmin
+version: 0.0.1
+commands:
+    reporttoadmin:
+      description: Initiates an admin report for the admins to respond to.
+      usage: /reporttoadmin

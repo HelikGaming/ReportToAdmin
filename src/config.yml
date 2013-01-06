@@ -1,0 +1,6 @@
+pushoverDeviceKeys:
+ - yourDeviceKeyHere
+ - anotherDeviceKeyHere
+pushoverApplicationKey: yourApplicationKeyHere
+pushoverMessageTitlePrefix: yourServerNameHere
+enableHighPriorityMessages: false
