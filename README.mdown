@@ -1,0 +1,64 @@
+# Report To Admin
+
+Report To Admin is a plugin for [Bukkit](http://bukkit.org/), the open source API built for Minecraft server. It allows players to send reports to admins who have iOS/Android devices running the [Pushover](http://pushover.net/) app.
+
+The plugin is still in its early stages, and allows for two types of primary reports to be sent, those involving an attack on the server and those involving server bugs. An 'other' category exists for any generic other problem.
+
+====
+
+## Plugin Installation
+
+In it's first version, the plugin will do no sanity checking on startup to verify that all required files are in place. As a result, these instructions should be followed in full.
+
+1. Place ReportToAdmin.jar into the ````plugins```` folder of your Bukkit installation.
+2. Place Pushover.jar into the ````lib```` folder, in the folder that holds the plugins folder. If this folder does not exist, create a new one.
+3. Place the ReportToAdmin folder, containing ````config.yml```` into the plugins folder.
+4. Configure the ````config.yml```` file according to the settings you desire. Be sure to validate the YAML using a [lint tool](http://yamllint.com) first.
+
+### Pushover Keys
+
+Report To Admin requires a [Pushover Application Key](https://pushover.net/apps/build), which can be obtained by simply creating a new application for your server. You shouldn't share this key with anyone. This key correlates to the ````pushoverApplicationKey```` key in the ````config.yml```` file.
+
+Report To Admin also requires user keys from each admin that wishes to receive admin reports. After purchasing the app, a user key can be obtained by visiting [Pushover's website](http://pushover.net/) and logging in. Add the user key to the ````pushoverDeviceKeys```` list in config.yml.
+
+### Misc Settings
+
+The following is an example ````config.yml````, with examples and explanations as to what each setting does.
+
+````
+pushoverDeviceKeys:
+ - key1
+ - key2
+ - key3
+pushoverApplicationKey: applicationKeyHere
+pushoverMessageTitlePrefix: ServerNameHere
+enableHighPriorityMessages: false
+````
+
+* ````pushoverDeviceKeys```` is a YAML list of user keys, each corresponding to an admin who wishes to get reports.
+* ````pushoverApplicationKey```` is a YAML string that contains an application key. See the above key explanation.
+* ````pushoverMessageTitlePrefix```` is the prefix that will come prior to any admin report in Pushover. If this were set to ShankShock, for example, the title of each message would begin with "ShankShock Report: ". This is usually set to the name of the server running the plugin, for clarity sake and differentiation between servers.
+* ````enableHighPriorityMessages```` is a YAML boolean that controls as to whether or not the plugin should send high priority Pushover notifications. A high priority notification will make sound and break the quiet hours set by users getting the message. This is typically discouraged, however, unless the users who are given permission to access the command are trustworthy.
+
+### Commands & Permissions
+
+For the time being, the sole command that this plugin will add is shown below. The permission node is a Bukkit permission node, and is supported by any plugin that uses BukkitPerms/SuperPerms/DinnerPerms.
+
+* ````/reporttoadmin```` - shankshock.reporttoadmin - Engages the plugin and starts an admin report.
+
+====
+
+## Sending a Report
+
+Upon issuing the command, a conversation will start.
+
+### Example Report
+
+![MC1](http://puu.sh/1Kghr.png)
+![MC2](http://puu.sh/1Kgi4.png)
+![MC3](http://puu.sh/1KgiG.png)
+![MC4](http://puu.sh/1KgiY.png)
+
+### Example Pushover Messages
+
+![Pushover1](https://dl.dropbox.com/u/1253613/Screenshot_2013-01-06-02-29-50.png)
